@@ -155,6 +155,21 @@
         border: 1px solid lightgrey;
         border-radius: 8px;
         overflow: hidden;
+        position: relative;
+    }
+
+    .subitem div:hover .overlay {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        top: 0;
+        right: 0;
+        background: rgba(0, 0, 0, .8);
+        color: #fff;
+        padding: 0em 1em 1em 1em;
+        border-radius: 0;
+        border: none;
     }
 
     .subitem div img {
@@ -163,7 +178,14 @@
         vertical-align: top;
     }
 
+    .overlay {
+        display: none;
+    }
 
+
+    /**
+     * Responsive
+     */
     @media screen and (max-width: 992px) {
         .rightcontent {
             padding: 0 10px; 
@@ -219,8 +241,6 @@
             grid-template: 1fr 1fr / 1fr ;
         }
     }
-
-
   </style>
 </head>
 
@@ -252,7 +272,7 @@
                     <a href='#'><i class="fas fa-heart"></i> <br> Más likes</a>
                 </li>
                 <li>
-                    <a href='#'><i class="fas fa-cog"></i> <br> Más likes</a>
+                    <a href='#'><i class="fas fa-cog"></i> <br> Ajustes</a>
                 </li>
             </ol>
 
@@ -262,10 +282,17 @@
                     <div>
                         <img src="images/proyecto-geminis-4k-220x320.jpg" alt="">
                         <div class="overlay">
-                            
+                            <h5>Proyecto Geminis</h5>
+                            <small>Henry Bogan, un asesino a sueldo, pretende retirarse porque se siente viejo. Sin embargo, hay alguien que no está dispuesto a permitírselo porque tiene la misión de matarlo: un clon suyo más joven, más rápido y más fuerte.</small>
                         </div>
                     </div>
-                    <div><img src="images/lady-and-the-tramp-4k-220x320.jpg" alt=""></div>
+                    <div>
+                        <img src="images/lady-and-the-tramp-4k-220x320.jpg" alt="">
+                        <div class="overlay">
+                            <h5>La Dama y el Vagabundo</h5>
+                            <small>La historia se centra en una cocker spaniel americana llamada Dama que vive felizmente con una familia de clase media alta. Después de que la familia tenga un bebé, Dama se pierde y en la calle conoce a un perro vagabundo llamado Golfo.</small>
+                        </div>
+                    </div>
                     <div><img src="images/the-irishman-4k-220x320.jpg" alt=""></div>
                     <div><img src="images/fast-and-furious-hobbs-and-shaw-4k-220x320.jpg" alt=""></div>
                     <div><img src="images/zombieland-tiro-de-gracia-4k-220x320.jpg" alt=""></div>
