@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+  <title>MoviEs</title>
+  <style>
+    body {
+      background: #f2f2f2;
+      font-size: 16px;
+      font-family: sans-serif;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .container {
+      display: grid;
+      grid-template: 67px 1fr / 100px 1fr;
+      grid-template-areas: 'header  header'
+                           'leftbar rightcontent';
+
+    }
+
+    @media screen and (max-width: 425px) {
+        .container {
+            grid-template: 67px 1fr / 80px 1fr;
+        }
+    }
+
+
+
+    /**
+     * Header settings
+     */
+    .header {
+        display:grid;
+        grid-template-columns: 200px 1fr 240px;
+        justify-items: center;
+        align-items: center;
+        grid-area: header;
+        -webkit-box-shadow: 0 10px 6px -6px #ccc;
+           -moz-box-shadow: 0 10px 6px -6px #ccc;
+                box-shadow: 0 10px 6px -6px #ccc;
+        background: #fff;
+    }
+
+    .header .logo img{
+        width: 36px;
+    }
+
+    .header .logo {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        align-items: center;
+        text-decoration: none;
+        font-size: 1.5em;
+        color: #333;
+    }
+
+    .header form {
+        width: 80%;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid lightgrey;
+    }
+
+    .header form input {
+        width: 100%;
+        height: 40px;
+        padding-left: 12px;
+        font-size: 1rem;
+        border: 0;
+    }
+
+    .header .user-info {
+        display: grid;
+        grid-template-columns: 1fr 48px;
+        align-items: center;
+        grid-gap: 16px;
+    }
+
+    .header .user-info img{
+        width: 36px;
+    }
+
+
+    /**
+     * Left bar settings
+     */
+
+    .leftbar {
+      display: grid;
+      grid-area: leftbar;
+      grid-template-rows: repeat(3, 80px) 1fr;
+
+      background: #ee6e73;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .leftbar li {
+      display: grid;
+      justify-content: center;
+      align-items: end;
+    }
+
+    .leftbar li a {
+      color: #FFF;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1.5em;
+    }
+
+    .leftbar li a:hover {
+      color: #f2f2f2;
+    }
+
+    .leftbar li a i {
+      font-size: 1.5em;
+    }
+
+    .leftbar li:nth-of-type(4) {
+        align-items: self-end;
+        margin-bottom: 30px;
+    }
+
+
+
+    /**
+     * Movie grid
+     */
+    .rightcontent {
+        display: grid;
+        grid-area: rightcontent;
+        grid-template: repeat(6, 1fr) / 1fr;
+        height: calc(100vh - 67px);
+        overflow-y: auto;
+        padding: 0 20px;
+    }
+
+    .rightcontent h3 {
+        margin: 20px 0 8px 0;
+    }
+
+    .subitem {
+        display: grid;
+        grid-template: 1fr / repeat(6, 1fr) ;
+        grid-gap: 20px;
+    }
+
+    .subitem div {
+        border: 1px solid lightgrey;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .subitem div img {
+        width: 100%;
+        object-fit: cover;
+        vertical-align: top;
+    }
+
+
+    @media screen and (max-width: 992px) {
+        .rightcontent {
+            padding: 0 10px; 
+        }
+
+        .subitem {
+            grid-gap: 10px;
+            grid-template: 1fr 1fr / repeat(3, 1fr) ;
+        }
+
+    }
+
+    @media screen and (max-width: 425px) {
+        .header {
+            grid-template-columns: 96px 1fr 100px;
+        }
+
+        .header .logo {
+            grid-template-columns: 48px;
+        }
+
+        .logo span {
+            display: none
+        }
+
+        .header .user-info {
+            grid-template-columns: 48px;
+        }
+
+        .user-info span {
+            display: none
+        }
+
+        .leftbar li a {
+            font-size: .85em;
+        }
+
+        .rightcontent h3 {
+            margin: 12px 0 5px 0;
+            font-size: 1em;
+        }
+
+        .subitem {
+            grid-gap: 5px;
+            grid-template: 1fr 1fr / repeat(2, 1fr) ;
+        }
+    }
+
+
+    @media screen and (max-width: 320px) {
+        .subitem {
+            grid-gap: 5px;
+            grid-template: 1fr 1fr / 1fr ;
+        }
+    }
+
+
+  </style>
+</head>
+
+    <body>
+        <div class='container'>
+            <div class='item header'>
+                <a class='logo' href='#'>
+                    <img src="images/popcorn.png" alt="" />
+                    <span>Movi.es</span>
+                </a>
+                <form>
+                    <input type="text" placeholder="Busca tu peli, actor, actriz o director favorito">
+                </form>
+
+                <div class='user-info'>
+                    <span>Emanuel Valero</span>
+                    <img src="images/user.png" alt="" />
+                </div>
+            </div>
+
+            <ol class='item leftbar'>
+                <li>
+                    <a href='#'><i class="fas fa-home"></i> <br> Home</a>
+                </li>
+                <li>
+                    <a href='#'><i class="fab fa-hotjar"></i> <br> Trending</a>
+                </li>
+                <li>
+                    <a href='#'><i class="fas fa-heart"></i> <br> Más likes</a>
+                </li>
+                <li>
+                    <a href='#'><i class="fas fa-cog"></i> <br> Más likes</a>
+                </li>
+            </ol>
+
+            <div class='item rightcontent'>
+                <h3>Ahora en el cine</h3>
+                <div class='subitem'>
+                    <div>
+                        <img src="images/proyecto-geminis-4k-220x320.jpg" alt="">
+                        <div class="overlay">
+                            
+                        </div>
+                    </div>
+                    <div><img src="images/lady-and-the-tramp-4k-220x320.jpg" alt=""></div>
+                    <div><img src="images/the-irishman-4k-220x320.jpg" alt=""></div>
+                    <div><img src="images/fast-and-furious-hobbs-and-shaw-4k-220x320.jpg" alt=""></div>
+                    <div><img src="images/zombieland-tiro-de-gracia-4k-220x320.jpg" alt=""></div>
+                    <div><img src="images/deadwood-the-movie-220x320.jpg" alt=""></div>
+                </div>
+
+                <h3>Aclamadas por la crítica</h3>
+                <div class='subitem'>
+                    <div><img src="images/ad-astra-4k-220x320.jpg" alt=""></div>
+                    <div><img src="images/lady-and-the-tramp-4k-220x320.jpg" alt=""></div>
+                    <div><img src="images/fast-and-furious-hobbs-and-shaw-4k-220x320.jpg" alt=""></div>
+                    <div><img src="images/zombieland-tiro-de-gracia-4k-220x320.jpg" alt=""></div>
+                    <div><img src="images/deadwood-the-movie-220x320.jpg" alt=""></div>
+                    <div><img src="images/agente-bajo-fuego-4k-220x320.jpg" alt=""></div>
+                </div>
+
+                <h3>No te las puedes perder</h3>
+                <div class='subitem'>
+                    <div><img src="images/proyecto-geminis-4k-220x320.jpg" alt=""></div>
+                    <div><img src="images/lady-and-the-tramp-4k-220x320.jpg" alt=""></div>
+                    <div><img src="images/deadwood-the-movie-220x320.jpg" alt=""></div>
+                    <div><img src="images/the-irishman-4k-220x320.jpg" alt=""></div>
+                    <div><img src="images/zombieland-tiro-de-gracia-4k-220x320.jpg" alt=""></div>
+                    <div><img src="images/lady-and-the-tramp-4k-220x320.jpg" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

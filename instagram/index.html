@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>Instagram Landing Page</title>
+	<!-- <link rel='stylesheet' type='text/css' href='style.css'> -->
+	<style type='text/css' media='screen'>
+		body {
+			margin: 0;
+			font-family: Arial;
+		}
+
+		.post-list {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(100px, 293px));
+			grid-gap: 28px;
+			justify-content: center;
+		}
+
+		@media screen and (max-width: 768px) {
+			.post-list {
+				grid-gap: 3px;
+			}
+		}
+
+		.post {
+			cursor: pointer;
+			position: relative;
+			display: block;
+			border-radius: 4px;
+			overflow: hidden;
+		}
+
+		.post-image {
+			margin: 0;
+		}
+
+		.post-image img {
+			width: 100%;
+			vertical-align: top;
+		}
+
+		.post-overlay {
+			background: rgba(0, 0, 0, .4);
+			position: absolute;
+			display: none;
+			color: #FFF;
+			text-align: center;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+			align-items: center;
+			justify-content: center;
+		}
+
+		.post:hover .post-overlay {
+			display: flex;
+		}
+
+		.post-likes, .post-comments {
+			width: 80px;
+			margin: 5px;
+			font-weight: bold;
+			display: inline-block;
+		}
+	</style>
+</head>
+	<body>
+		<section class='post-list'>
+			<a class='post' href='#'>
+				<figure class='post-image'>
+					<img src='images/hongkong.jpg' alt='Hong Kong'>
+				</figure>
+				<span class='post-overlay'>
+					<p>
+						<span class='post-likes'>150</span>
+						<span class='post-comments'>15</span>
+					</p>
+				</span>
+			</a>
+
+			
+			<a class='post' href='#'>
+				<figure class='post-image'>
+					<img src='images/singapore.jpg' alt='Singapore'>
+				</figure>
+				<span class='post-overlay'>
+					<p>
+						<span class='post-likes'>150</span>
+						<span class='post-comments'>15</span>
+					</p>
+				</span>
+			</a>
+
+
+			<a class='post' href='#'>
+				<figure class='post-image'>
+					<img src='images/vancouver.jpg' alt='Vancouver'>
+				</figure>
+				<span class='post-overlay'>
+					<p>
+						<span class='post-likes'>150</span>
+						<span class='post-comments'>15</span>
+					</p>
+				</span>
+			</a>
+
+
+			<a class='post' href='#'>
+				<figure class='post-image'>
+					<img src='images/portland.jpg' alt='Portland'>
+				</figure>
+				<span class='post-overlay'>
+					<p>
+						<span class='post-likes'>150</span>
+						<span class='post-comments'>15</span>
+					</p>
+				</span>
+			</a>
+
+
+			<a class='post' href='#'>
+				<figure class='post-image'>
+					<img src='images/taiwan.jpg' alt='Taiwan'>
+				</figure>
+				<span class='post-overlay'>
+					<p>
+						<span class='post-likes'>150</span>
+						<span class='post-comments'>15</span>
+					</p>
+				</span>
+			</a>
+
+
+			<a class='post' href='#'>
+				<figure class='post-image'>
+					<img src='images/shenzhen.jpg' alt='Shenzhen'>
+				</figure>
+				<span class='post-overlay'>
+					<p>
+						<span class='post-likes'>150</span>
+						<span class='post-comments'>15</span>
+					</p>
+				</span>
+			</a>
+
+
+			<a class='post' href='#'>
+				<figure class='post-image'>
+					<img src='images/tokyo.jpg' alt='Tokyo'>
+				</figure>
+				<span class='post-overlay'>
+					<p>
+						<span class='post-likes'>150</span>
+						<span class='post-comments'>15</span>
+					</p>
+				</span>
+			</a>
+
+
+			<a class='post' href='#'>
+				<figure class='post-image'>
+					<img src='images/boston.jpg' alt='Boston'>
+				</figure>
+				<span class='post-overlay'>
+					<p>
+						<span class='post-likes'>150</span>
+						<span class='post-comments'>15</span>
+					</p>
+				</span>
+			</a>
+
+
+			<a class='post' href='#'>
+				<figure class='post-image'>
+					<img src='images/lansing.jpg' alt='Lansing'>
+				</figure>
+				<span class='post-overlay'>
+					<p>
+						<span class='post-likes'>150</span>
+						<span class='post-comments'>15</span>
+					</p>
+				</span>
+			</a>
+		</section>
+
+	</body>
+</html>
