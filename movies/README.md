@@ -1,1 +1,1 @@
-![alt text](https://github.com/ejvalero/frontend/blob/master/movies/movies.png)
+![movi.es](https://github.com/ejvalero/frontend/blob/master/movies/movies.png)
