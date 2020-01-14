@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='UTF-8'>
+		<meta name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no'>
+		<title>Custom modal window</title>
+		<style type="text/css" media="screen">
+			body {
+				margin: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-family: 'Arial';
+			}
+			.overlay {
+				background: rgba(0, 0, 0, .8);
+				position: fixed;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				z-index: 0;
+
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				transition: 1s ease-in;
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			.overlay.active {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			.modal {
+				position: relative;
+				max-width: 500px;
+				width: 30%;
+				background: white;
+				z-index: 1;
+
+				padding: 2em;
+				border-radius: .5em;
+				text-align: center;
+
+				animation: modalIn .8s forwards;
+			}
+
+			.modal p {
+				line-height: 1.5em;
+			}
+
+			.btn {
+				text-align: center;
+				padding: .6em .8em .8em;
+				border: none;
+				color: white;
+				background: lightgrey;
+				margin: 5px;
+				border-radius: 5px;
+				cursor: pointer;
+				box-shadow: inset 0 -.2em rgba(0, 0, 0, .2);
+				outline: 0;
+				transition: .2s;
+				will-change: transform;
+			}
+
+			.btn.primary {
+				background: #7dc800;
+			}
+
+			.btn.warning {
+				background: #ff463b;
+			}
+
+			@keyframes modalIn {
+				0% {
+					transform: translateY(-3000px);
+				}
+
+				60% {
+					transform: translateY(25px);
+				}
+
+				75% {
+					transform: translateY(-10px);
+				}
+
+				90% {
+					transform: translateY(5px);
+				}
+			}
+
+			@keyframes modalOut {
+				0% {
+					transform: translateY(5px);
+				}
+
+				60% {
+					transform: translateY(-25px);
+				}
+
+				75% {
+					transform: translateY(25px);
+				}
+
+				100% {
+					transform: translateY(-3000px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<button class="btn primary" id='show-modal'>Abrir ventana modal</button>
+		<div class='overlay' id='overlay'>
+			<div id='modal'>
+				<h1>Bienvenido</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consectetur, ex id pellentesque finibus, augue mi suscipit augue, eget tempus dolor dui sed ligula.</p>
+				<p>¿Te gustó?</p>
+				<div class='modal-buttons'>
+					<button class='btn primary' id='hide-modal'>Sí, está genial</button>
+					<button class='btn warning'>No. Quiero salir</button>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			const $hidebutton  = document.getElementById('hide-modal');
+			const $closeButton = document.querySelector('.warning');
+			const $showmodal = document.getElementById('show-modal');
+
+			const $modal = document.getElementById('modal');
+			const $overlay = document.getElementById('overlay');
+
+
+			/* Display modal when click middle button */
+			$showmodal.addEventListener('click', () => {
+				$overlay.classList.add('active');
+				$modal.classList.add('modal');
+			});
+
+			function closeModal() {
+				$modal.style.animation = 'modalOut .8s forwards';
+				$overlay.classList.remove('active');
+			}
+
+			/* Close modal when click to the green button */
+			$hidebutton.addEventListener('click', closeModal);
+
+			/* Close modal when click to the overlay */
+			$overlay.addEventListener('click', closeModal);
+
+			/* Close modal when click to the red button */
+			$closeButton.addEventListener('click', closeModal)
+
+		</script>
+	</body>
+</html>
